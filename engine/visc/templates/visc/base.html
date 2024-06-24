@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% block headImg %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'visc/css/master.css' %}">
+    {% block extraCss %} {% endblock %}
+    <script type="text/javascript" src ="{% static 'visc/js/master.js' %}"></script>
+    {% block extraJs %} {% endblock %}
+    <style>
+    label {
+        font-weight: bold; /* This makes the text bold */
+    }
+
+    /* Reduce input width to 25% on larger screens */
+    @media (min-width: 768px) {
+        input.form-control {
+            width: 25%;
+            margin: 0 auto; /* This centers the input fields */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container-fluid {
+            padding: 0 5%;
+        }
+    }
+    </style>
+    <title>{% block pageTitle %}Linear viscosity predictor{% endblock %}</title>
+  </head>
+  <body>
+    {% block body %} {% endblock %}
+  </body>
+</html>

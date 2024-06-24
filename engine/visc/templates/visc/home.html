@@ -1,0 +1,42 @@
+{% extends 'visc/base.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-md-10 col-sm-12">
+            <h1 class="text-center my-4"> <span style="color:#7B3F00">Linear viscosity predictor</span></h1>
+
+            <form method="post" class="mb-4">
+                {% csrf_token %}
+
+                <div class="form-group text-center">
+                    <label for="total_fat">Total Fat:</label>
+                    <input type="number" step="0.01" class="form-control d-block mx-auto" id="total_fat" name="total_fat" required>
+                </div>
+
+                <div class="form-group text-center">
+                    <label for="fineness">Fineness:</label>
+                    <input type="number" step="0.01" class="form-control d-block mx-auto" id="fineness" name="fineness" required>
+                </div>
+
+                <div class="form-group text-center">
+                    <label for="emulsifier">Emulsifier:</label>
+                    <input type="number" step="0.01" class="form-control d-block mx-auto" id="emulsifier" name="emulsifier" required>
+                </div>
+
+                <div class="form-group text-center">
+                    <label for="pgpr">PGPR:</label>
+                    <input type="number" step="0.01" class="form-control d-block mx-auto" id="pgpr" name="pgpr" required>
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Predict Viscosity" class="btn btn-primary">
+                </div>
+            </form>
+
+            <h2 class="text-center">Predicted linear viscosity <span style="color:green">{{predicted_viscosity}}</span></h2>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
